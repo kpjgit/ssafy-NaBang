@@ -73,13 +73,13 @@ Qt GUI에서 호출하기 쉽도록 `IoTController` 중심의 **함수/클래스
 
 ```mermaid
 flowchart LR
-  Cam[Camera] --> Snap[Frame Snapshot\n(controller.py)]
-  Snap --> Mesh[FaceMesh 478 Landmarks\n(edge_ai/ai_engine.py)]
-  Mesh --> Heu[Heuristic Score\n(eye/mouth/head/iris)]
-  Heu --> Eval[Window Aggregation\n5s / 3min (evaluate/evaluator.py)]
-  Eval --> MQTT[MQTT Publish\n(mqtt/mqtt_client.py)]
-  Sensor[ESP32 UART Sensors\n(sensor/sensor.py)] --> MQTT
-  Eval --> UI[Qt Callback\n(환경 제어 트리거)]
+  Cam[Camera] --> Snap["Frame Snapshot<br>(controller.py)"]
+  Snap --> Mesh["FaceMesh 478 Landmarks<br>(edge_ai/ai_engine.py)"]
+  Mesh --> Heu["Heuristic Score<br>(eye/mouth/head/iris)"]
+  Heu --> Eval["Window Aggregation<br>5s / 3min (evaluate/evaluator.py)"]
+  Eval --> MQTT["MQTT Publish<br>(mqtt/mqtt_client.py)"]
+  Sensor["ESP32 UART Sensors<br>(sensor/sensor.py)"] --> MQTT
+  Eval --> UI["Qt Callback<br>(환경 제어 트리거)"]
 ```
 
 ### 설계 포인트 1) “프레임 스냅샷”(안정성)
